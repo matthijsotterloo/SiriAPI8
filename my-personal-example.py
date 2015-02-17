@@ -24,16 +24,16 @@ def licht_toggle(q, wildcards):
 
 
     if (found == False):
-        print("Diese Lampe kenne ich nicht")
+        print("I don't recognize this lamp")
     else:
-        print("Ich habe die gewuenschte Lampe umgeschaltet")
+        print("I changed the lamp")
 
 
 SiriAPI = SiriAPI("my-email@me.com", "MyPassword")
 
-SiriAPI.action.add([['schalte das', '*'], ['schalte die', '*'], ['schalte den', '*'], ['schalte das', '*'], ['schalte die', '*'], ['schalte den', '*'], ['schalte', '*'], ['schalte', '*']], licht_toggle)
+SiriAPI.action.add([['zet de', '*']], licht_toggle)
 
-print ("Version: " + SiriAPI.get_version())
+print ("Siri API Version: " + SiriAPI.get_version())
 SiriAPI.connect()
-input("Press any key...\n")
+input("Press any key to exit...\n")
 SiriAPI.disconnect()
